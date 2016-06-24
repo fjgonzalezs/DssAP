@@ -15,8 +15,3 @@ Route::get('/', function () {
    // return view('welcome');
 	return view('index');
 });
-
-Route::get('prueba',function(){
-
-	return "hola prueba :D";
-});
