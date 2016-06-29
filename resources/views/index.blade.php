@@ -8,7 +8,7 @@
 				<div class="panel-heading">Inicio</div>
  
 				<div class="panel-body">
-					Usando Bootstrap
+					Usando bootstrap
 				</div>
 			</div>
 		</div>
