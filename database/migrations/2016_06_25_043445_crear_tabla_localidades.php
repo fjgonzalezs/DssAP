@@ -15,6 +15,9 @@ class CrearTablaLocalidades extends Migration
         Schema::create('localidades', function (Blueprint $table) {
             $table->increments('idLocalidad');
              $table->string('nombreLocalidad',45);
+
+               $table->integer('idActitud')->unsigned();
+             $table->foreign('idActitud')->references('idActitud')->on('actitudes');
         });
     }
 

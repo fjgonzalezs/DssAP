@@ -21,6 +21,17 @@ class CrearTablaEstudiantes extends Migration
             $table->string('telefonoEstudiante',20);
             $table->string('domicilioEstudiante',45);
             $table->timestamps();
+            $table->integer('idNota')->unsigned();
+             $table->foreign('idNota')->references('idNota')->on('notas');
+
+              $table->integer('idCurso')->unsigned();
+             $table->foreign('idCurso')->references('idCurso')->on('cursos');
+
+              $table->integer('idDisciplina')->unsigned();
+             $table->foreign('idDisciplina')->references('idDisciplina')->on('disciplina');
+
+              $table->integer('idElegido')->unsigned();
+             $table->foreign('idElegido')->references('idElegido')->on('elegidos');
 
         });
     }

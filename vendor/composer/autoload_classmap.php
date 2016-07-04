@@ -6,13 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CrearRelacionEstudiantes' => $baseDir . '/database/migrations/2016_07_04_225346_crear_relacion_estudiantes.php',
-    'CrearTablaActitudes' => $baseDir . '/database/migrations/2016_06_25_025326_crear_tabla_actitudes.php',
+    'CrearTablaActitudes' => $baseDir . '/database/migrations/2016_06_25_042326_crear_tabla_actitudes.php',
     'CrearTablaCursos' => $baseDir . '/database/migrations/2016_06_25_024900_crear_tabla_cursos.php',
     'CrearTablaDisciplina' => $baseDir . '/database/migrations/2016_06_25_030027_crear_tabla_disciplina.php',
     'CrearTablaElegidos' => $baseDir . '/database/migrations/2016_06_25_025902_crear_tabla_elegidos.php',
-    'CrearTablaEstudiantes' => $baseDir . '/database/migrations/2016_06_25_021750_crear_tabla_estudiantes.php',
-    'CrearTablaLocalidades' => $baseDir . '/database/migrations/2016_06_25_025445_crear_tabla_localidades.php',
+    'CrearTablaEstudiantes' => $baseDir . '/database/migrations/2016_06_25_041750_crear_tabla_estudiantes.php',
+    'CrearTablaLocalidades' => $baseDir . '/database/migrations/2016_06_25_043445_crear_tabla_localidades.php',
     'CrearTablaNotas' => $baseDir . '/database/migrations/2016_06_25_022542_crear_tabla_notas.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
