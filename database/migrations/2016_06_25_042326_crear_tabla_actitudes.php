@@ -15,6 +15,9 @@ class CrearTablaActitudes extends Migration
         Schema::create('actitudes', function (Blueprint $table) {
              $table->increments('idActitud');
              $table->string('nombreActitud',45);
+             
+               $table->integer('idEstudiante')->unsigned();
+             $table->foreign('idEstudiante')->references('idEstudiante')->on('estudiantes');
         });
     }
 
