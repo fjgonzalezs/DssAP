@@ -3,47 +3,213 @@
 @section('contenido')
   <!-- Intro Section -->
     <section id="intro" class="intro-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Scrolling Nav</h1>
-                    <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>
-                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
-                </div>
-            </div>
-        </div>
+       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="{{asset('/img/bandera.jpg')}}" alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    <div class="item">
+      <img src="..." alt="...">
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    ...
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1>About Section</h1>
+                <div class="col-lg-4">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Mostrar estudiantes</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+       <a href="{{url('MostrarEstudiantes')}}"><button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button></a> 
+      </div>
+    </div>
+  </div>
+</div>
                 </div>
+
+
+    <div class="col-lg-4">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Ingresar estudiantes</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+        <button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+                </div> 
+
+
+   <div class="col-lg-4">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Editar estudiantes</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+        <button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>                          
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services-section">
-        <div class="container">
+         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1>Services Section</h1>
+                <div class="col-lg-6">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Elejir Portaestandarte</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+       <a href="{{url('MostrarEstudiantes')}}"><button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button></a> 
+      </div>
+    </div>
+  </div>
+</div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Contact Section</h1>
-                </div>
+
+    <div class="col-lg-6">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Mostrar  Notas</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+       <a href="{{url('MostrarNota')}}"><button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button></a> 
+      </div>
+    </div>
+  </div>
+</div>
+                </div>                          
             </div>
         </div>
     </section>
-@endsection
+    
+ 
+    <!-- About Section -->
+    <section id="parametros" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Actitudes</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+       <a href="{{url('MostrarEstudiantes')}}"><button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button></a> 
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+
+
+    <div class="col-lg-6">
+                    <div class="panel panel-default bootcards-media">
+  <div class="panel-heading">
+    <h3 class="panel-title">Localidades</h3>
+  </div>
+  
+  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <div class="panel-footer">
+    <div class="btn-group btn-group-justified">
+      
+      <div class="btn-group">
+        <button class="btn btn-default">
+          <i class="fa fa-envelope"></i>
+          Ver
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>                 
+            </div>
+        </div>
+    </section>
+  @endsection

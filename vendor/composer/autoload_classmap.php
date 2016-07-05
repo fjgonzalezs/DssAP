@@ -15,6 +15,8 @@ return array(
     'CrearTablaEstudiantesActitudes' => $baseDir . '/database/migrations/2016_07_05_015446_crear_tabla_estudiantes_actitudes.php',
     'CrearTablaLocalidades' => $baseDir . '/database/migrations/2016_06_25_043445_crear_tabla_localidades.php',
     'CrearTablaNotas' => $baseDir . '/database/migrations/2016_06_25_022542_crear_tabla_notas.php',
+    'CrearTablaPesosActitudes' => $baseDir . '/database/migrations/2016_06_25_043444_crear_tabla_pesos_actitudes.php',
+    'CrearTablaTotalesPesos' => $baseDir . '/database/migrations/2016_06_25_043443_crear_tabla_totales_pesos.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

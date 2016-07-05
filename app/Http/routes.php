@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -19,4 +20,21 @@ Route::get('/', function () {
 Route::get('prueba',function(){
 
 	return "hola prueba  asdasd:D";
+});
+
+Route::get('MostrarEstudiantes',function(){
+
+ $estudiantes = \DB::table('estudiantes')->get();
+
+
+	return view('MostrarEstudiantes', compact('estudiantes'));
+});
+Route::get('MostrarNota',function(){
+
+ $estudiantes = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+ ->get();
+
+
+	return view('MostrarNota', compact('estudiantes'));
 });

@@ -8,6 +8,7 @@
  
 	{!! Html::style('css/bootstrap.css') !!}
 	{!! Html::style('css/scrolling-nav.css') !!}
+    {!! Html::style('css/bootcards-desktop.css') !!}
 	
  
 	<!-- Fonts -->
@@ -30,8 +31,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">DSS Portaestandartes</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,13 +44,13 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about">Estudiantes</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">Elegir porta estandarte</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#parametros">Editar parametros</a>
                     </li>
                 </ul>
             </div>
@@ -65,6 +67,7 @@
 	{!! Html::script('js/bootstrap.min.js') !!}
 	{!! Html::script('js/jquery.easing.min.js') !!}
 	{!! Html::script('js/scrolling-nav.js') !!}
+    {!! Html::script('js/bootcards.js') !!}
 	
 </body>
 </html>
