@@ -14,7 +14,6 @@ class CrearTablaNotas extends Migration
     {
         Schema::create('notas', function (Blueprint $table) {
            $table->increments('idNota');
-           $table->decimal('primeroNota',6, 3);
            $table->decimal('segundoNota',6, 3);
            $table->decimal('terceroNota',6, 3);
            $table->decimal('cuartoNota',6, 3);
