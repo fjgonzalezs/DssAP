@@ -3,7 +3,11 @@
 @section('contenido')
   <!-- Intro Section -->
     <section id="intro" class="intro-section">
-       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        
+               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -14,13 +18,13 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="{{asset('/img/bandera.jpg')}}" alt="...">
+      <img src="{{asset('/img/ecuador.jpg')}}" alt="...">
       <div class="carousel-caption">
         ...
       </div>
     </div>
     <div class="item">
-      <img src="..." alt="...">
+      <img src="{{asset('/img/bandera.jpg')}}" alt="...">
       <div class="carousel-caption">
         ...
       </div>
@@ -37,6 +41,9 @@
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>        
+      </div>
+    </div>
 </div>
     </section>
 
@@ -50,7 +57,7 @@
     <h3 class="panel-title">Mostrar estudiantes</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/mostrare.jpg')}}" alt="..." class="img-responsive"/>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       
@@ -72,7 +79,7 @@
     <h3 class="panel-title">Ingresar estudiantes</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/ingresar.jpeg')}}" alt="..." class="img-responsive"/>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       
@@ -94,7 +101,7 @@
     <h3 class="panel-title">Editar estudiantes</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/editar.jpg')}}" alt="..." class="img-responsive"  />
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       
@@ -119,10 +126,10 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default bootcards-media">
   <div class="panel-heading">
-    <h3 class="panel-title">Elejir Portaestandarte</h3>
+    <h3 class="panel-title">Elegir Portaestandarte</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/portaestandarte.jpg')}}" alt="..." class="img-responsive"/>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       
@@ -144,7 +151,7 @@
     <h3 class="panel-title">Mostrar  Notas</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/notas.jpg')}}" alt="..." class="img-responsive"/>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       
@@ -173,7 +180,7 @@
     <h3 class="panel-title">Actitudes</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/actitudes.jpg')}}" alt="..." class="img-responsive"/>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       
@@ -195,7 +202,7 @@
     <h3 class="panel-title">Localidades</h3>
   </div>
   
-  <img src="http://www.teamstudio.com/Portals/218295/images/istock_000001242290small.jpg" class="img-responsive"/>
+  <img src="{{asset('/img/localidades.jpg')}}" alt="..." class="img-responsive"/>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
       

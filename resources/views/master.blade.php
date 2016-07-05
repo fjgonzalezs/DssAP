@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">DSS Portaestandartes</a>
+                <a class="navbar-brand page-scroll" href="{{url('/')}}">DSS Portaestandartes</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,16 +41,16 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
+                        <a class="page-scroll" href="{{url('/#page-top')}}"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Estudiantes</a>
+                        <a class="page-scroll" href="{{url('/#about')}}">Estudiantes</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Elegir porta estandarte</a>
+                        <a class="page-scroll" href="{{url('/#services')}}">Elegir porta estandarte</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#parametros">Editar parametros</a>
+                        <a class="page-scroll" href="{{url('/#parametros')}}">Editar parametros</a>
                     </li>
                 </ul>
             </div>
