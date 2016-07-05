@@ -16,6 +16,9 @@ class CrearTablaLocalidades extends Migration
             $table->increments('idLocalidad');
              $table->string('nombreLocalidad',45);
 
+             
+              $table->integer('idPeso_actitud')->unsigned();
+             $table->foreign('idPeso_actitud')->references('idPeso_actitud')->on('pesos_actitudes');
             
         });
     }
