@@ -16,8 +16,6 @@ class CrearTablaActitudes extends Migration
              $table->increments('idActitud');
              $table->string('nombreActitud',45);
              
-               $table->integer('idEstudiante')->unsigned();
-             $table->foreign('idEstudiante')->references('idEstudiante')->on('estudiantes');
         });
     }
 

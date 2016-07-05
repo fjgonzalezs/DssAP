@@ -7,10 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CrearTablaActitudes' => $baseDir . '/database/migrations/2016_06_25_042326_crear_tabla_actitudes.php',
+    'CrearTablaActitudesLocalidades' => $baseDir . '/database/migrations/2016_07_05_025148_crear_tabla_actitudes_localidades.php',
     'CrearTablaCursos' => $baseDir . '/database/migrations/2016_06_25_024900_crear_tabla_cursos.php',
     'CrearTablaDisciplina' => $baseDir . '/database/migrations/2016_06_25_030027_crear_tabla_disciplina.php',
     'CrearTablaElegidos' => $baseDir . '/database/migrations/2016_06_25_025902_crear_tabla_elegidos.php',
     'CrearTablaEstudiantes' => $baseDir . '/database/migrations/2016_06_25_041750_crear_tabla_estudiantes.php',
+    'CrearTablaEstudiantesActitudes' => $baseDir . '/database/migrations/2016_07_05_015446_crear_tabla_estudiantes_actitudes.php',
     'CrearTablaLocalidades' => $baseDir . '/database/migrations/2016_06_25_043445_crear_tabla_localidades.php',
     'CrearTablaNotas' => $baseDir . '/database/migrations/2016_06_25_022542_crear_tabla_notas.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
