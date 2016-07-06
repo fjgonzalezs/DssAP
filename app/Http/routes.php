@@ -29,12 +29,32 @@ Route::get('MostrarEstudiantes',function(){
 
 	return view('MostrarEstudiantes', compact('estudiantes'));
 });
+
+Route::get('elegirEstudiante','estudiantesController@muestraelegidos');
+
+
+
 Route::get('MostrarNota',function(){
 
  $estudiantes = \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota')
  ->get();
+$arreglo = array();
 
+ foreach($estudiantes as $estudiante){
+
+ 	$suma = ($estudiante->segundoNota+$estudiante->terceroNota+$estudiante->cuartoNota+$estudiante->quintoNota
+ 	 			+$estudiante->sextoNota+$estudiante->septimoNota+$estudiante->octavoNota+$estudiante->novenoNota
+ 	 			+$estudiante->decimoNota+$estudiante->primeroBNota+$estudiante->segundoBNota)/11;
+ 	$arreglo[] = $suma;
+
+
+ 	\DB::table('notas')
+            ->where('notas.idNota', $estudiante->idNota)
+            ->whereNull('totalNota')
+            ->update(['totalNota' => $suma]);
+ }
 
 	return view('MostrarNota', compact('estudiantes'));
+ //return var_dump($arreglo);
 });

@@ -20,8 +20,9 @@
         <th>Octavo</th>
         <th>Noveno</th>
         <th>Decimo</th>
-         <th>Primero</th>
-        <th>Segundo</th>
+         <th>Primero Bachiller</th>
+        <th>Segundo Bachiller</th>
+        <th>Total Nota</th>
         
       </tr>
     </thead>
@@ -42,6 +43,7 @@
         <td class="text-left">{{$estudiante->decimoNota}}</td>
         <td class="text-left">{{$estudiante->primeroBNota}}</td>
         <td class="text-left">{{$estudiante->segundoBNota}}</td>
+        <td class="text-left">{{$estudiante->totalNota}}</td>
       </tr>
 	
 	@endforeach	
