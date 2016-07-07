@@ -31,6 +31,7 @@ Route::get('MostrarEstudiantes',function(){
 });
 
 Route::get('elegirEstudiante','estudiantesController@muestraelegidos');
+Route::get('nacionalAbanderado','estudiantesController@nacional');
 
 
 

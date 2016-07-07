@@ -123,4 +123,53 @@ $contar = DB::table('notas')
     return view('elegirEstudiante', compact('estudiantes','contar'));
                // return var_dump($users);
     }
+
+    public function nacional()
+    {
+         $estudiantes = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+ ->orderBy('totalNota', 'desc')
+ ->get();
+$ids = array();
+
+ foreach($estudiantes as $estudiante){
+
+    
+    $ids[] = $estudiante->idEstudiante;
+
+
+    
+ }
+
+
+
+ $abanderado = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+  ->orderBy('totalNota', 'desc')
+  ->where('idEstudiante',$ids[0]) // 0 es el mejor
+ ->first();
+
+ foreach($estudiantes as $estudiante){
+
+    if($estudiante->idEstudiante <> $abanderado->idEstudiante && $estudiante->totalNota == $abanderado->totalNota)
+    {
+        return "se repite hacer uso del dss";
+    }
+    else{
+
+  \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
+ ->where('idEstudiante',$ids[0])
+ ->update(['idElegido' => 'Abanderado nacional']);
+ 
+    return "elegido abanderado nacional";
+
+    }
+ }
+
+ //return var_dump($abanderado);
+
+
+
+    }
 }

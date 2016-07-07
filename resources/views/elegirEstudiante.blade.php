@@ -13,6 +13,7 @@
         <th>Apellido</th>
         <th>Cedula</th>
         <th>Nota promedio</th>
+        <th>porta estandarte</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
         <td class="text-left">{{$estudiante->apellidoEstudiante}}</td>
         <td class="text-left">{{$estudiante->cedulaEstudiante}}</td>
         <td class="text-left"> {{$estudiante->totalNota}}</td>
+        <td class = "text-left">{{$estudiante->idElegido}}</td>
       </tr>
 	
 	@endforeach	
@@ -52,9 +54,28 @@
   </table>
                 </div>
             </div>
+
+            <div class="row">
+	<div class="col-lg-2">
+		<!-- Single button -->
+<div>
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Nacional
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li><a href="{{url('nacionalAbanderado')}}">Abanderado Nacional</a></li>
+    <li><a href="#">Primer escolta nacional</a></li>
+    <li><a href="#">Segundo escolta nacional</a></li>
+    
+  </ul>
+</div>
+
+
+	</div>
+</div>
         </div>
     </section>
-
 
 
 @endsection
