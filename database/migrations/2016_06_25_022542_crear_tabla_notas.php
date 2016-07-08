@@ -25,7 +25,8 @@ class CrearTablaNotas extends Migration
            $table->decimal('decimoNota',6, 3);
            $table->decimal('primeroBNota',6, 3);
            $table->decimal('segundoBNota',6, 3);
-            $table->timestamps();
+           $table->decimal('totalNota',6,3)->nullable()->default(null);
+           
         });
     }
 
