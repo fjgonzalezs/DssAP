@@ -149,25 +149,119 @@ $ids = array();
   ->where('idEstudiante',$ids[0]) // 0 es el mejor
  ->first();
 
+ $repetidos = array();
  foreach($estudiantes as $estudiante){
 
     if($estudiante->idEstudiante <> $abanderado->idEstudiante && $estudiante->totalNota == $abanderado->totalNota)
     {
-        return "se repite hacer uso del dss";
+         $repetidos[] = $estudiante->idEstudiante;
     }
-    else{
 
-  \DB::table('estudiantes')
+   
+
+ }
+
+ if(count($repetidos)>0){
+
+    return "llamar al dss se repiten ". count($repetidos);
+
+ }
+
+ else{
+
+    \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
  ->where('idEstudiante',$ids[0])
- ->update(['idElegido' => 'Abanderado nacional']);
+ ->update(['idElegido' => 'abanderado nacional']);
  
     return "elegido abanderado nacional";
 
+ }
+
+
+
+ 
+ }
+
+     
+
+     public function ciudad()
+    {
+         $estudiantes = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+ ->orderBy('totalNota', 'desc')
+ ->get();
+$ids = array();
+
+ foreach($estudiantes as $estudiante){
+
+
+
+    
+    $ids[] = $estudiante->idEstudiante;
+
+
+    
+ }
+
+
+
+ $abanderado = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+  ->orderBy('totalNota', 'desc')
+  ->where('idEstudiante',$ids[1]) 
+ ->first();
+$repetidos = array();
+ foreach($estudiantes as $estudiante){
+
+    if($estudiante->idEstudiante <> $abanderado->idEstudiante && $estudiante->totalNota == $abanderado->totalNota)
+    {
+         $repetidos[] = $estudiante->idEstudiante;
     }
+
+   
+
+ }
+
+ if(count($repetidos)>0){
+
+   $empatados = $this->dssciudad($abanderado->idEstudiante,$repetidos,$abanderado->totalNota);
+   return view('nacional.ciudad',compact('empatados'));
+   //return $estudiante->totalNota;
+   //return var_dump($empatados);
+
+    //return "llamar al dss se repiten ". count($repetidos);
+
+ }
+
+ else{
+
+    \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
+ ->where('idEstudiante',$ids[1])
+ ->update(['idElegido' => 'Portaestandarte de la ciudad ']);
+ 
+    return "elegido Portaestandarte de la ciudad ";
+
  }
 
  //return var_dump($abanderado);
+
+
+
+    }
+
+    public function dssciudad($idprimero,$idrepetidos,$nota){
+
+       $estudiantes = DB::table('notas')
+       ->join('estudiantes','notas.idNota','=','estudiantes.idNota')
+       ->join('estudiantes_actitudes','estudiantes.idEstudiante','=','estudiantes_actitudes.idEstudiante')
+       ->join('localidades','estudiantes_actitudes.idLocalidad','=','localidades.idLocalidad')
+       ->join('pesos_actitudes','localidades.idPeso_actitud','=','pesos_actitudes.idPeso_actitud')
+       ->where('notas.totalNota',$nota)
+       ->get();
+
+       return $estudiantes;
 
 
 

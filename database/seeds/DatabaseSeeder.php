@@ -73,47 +73,50 @@ DB::table('actitudes')->insert(array(
         	array('nombreActitud' => 'Participación de estudiantes en actividades sociales'),  
             ));
 
+    DB::table('totales_pesos')->insert(array(
+          array('valorTotal' => 25),
+          array('valorTotal' => 15), 
+          array('valorTotal' => 15), 
+          array('valorTotal' => 20), 
+          array('valorTotal' => 15),  
+            ));
+
+     DB::table('pesos_actitudes')->insert(array(
+          array('puntajePeso' => 10, 'idTotal_peso' => 1 ),
+          array('puntajePeso' => 7, 'idTotal_peso' => 1), 
+          array('puntajePeso' => 5, 'idTotal_peso' => 1), 
+          array('puntajePeso' => 3, 'idTotal_peso' => 1),
+          array('puntajePeso' => 0, 'idTotal_peso' => 1), 
+            
+            ));
+
+
+DB::table('localidades')->insert(array(
+          array('nombreLocalidad' => 'País', 'idPeso_actitud' => 1),
+          array('nombreLocalidad' => 'Provincia','idPeso_actitud' => 2), 
+          array('nombreLocalidad' => 'Ciudad', 'idPeso_actitud' => 3), 
+          array('nombreLocalidad' => 'Establecimiento educativo', 'idPeso_actitud' => 4), 
+          array('nombreLocalidad' => 'No participa', 'idPeso_actitud' => 5),  
+            ));
+
 
 	  DB::table('estudiantes_actitudes')->insert([ // solo la actitud cientifica por ahora
             
             'idEstudiante' => 1,
             'idActitud' => 1,
+            'idLocalidad' =>1,
             
              ]);
 
 
-	  DB::table('totales_pesos')->insert(array(
-        	array('valorTotal' => 25),
-        	array('valorTotal' => 15), 
-        	array('valorTotal' => 15), 
-        	array('valorTotal' => 20), 
-        	array('valorTotal' => 15),  
-            ));
-
-	   DB::table('pesos_actitudes')->insert(array(
-        	array('puntajePeso' => 10, 'idTotal_peso' => 1 ),
-        	array('puntajePeso' => 7, 'idTotal_peso' => 1), 
-        	array('puntajePeso' => 5, 'idTotal_peso' => 1), 
-        	array('puntajePeso' => 3, 'idTotal_peso' => 1),
-        	array('puntajePeso' => 0, 'idTotal_peso' => 1), 
-        	  
-            ));
 
 
-DB::table('localidades')->insert(array(
-        	array('nombreLocalidad' => 'País', 'idPeso_actitud' => 1),
-        	array('nombreLocalidad' => 'Provincia','idPeso_actitud' => 2), 
-        	array('nombreLocalidad' => 'Ciudad', 'idPeso_actitud' => 3), 
-        	array('nombreLocalidad' => 'Establecimiento educativo', 'idPeso_actitud' => 4), 
-        	array('nombreLocalidad' => 'No participa', 'idPeso_actitud' => 5),  
-            ));
-
- DB::table('actitudes_localidades')->insert([ //solo a participado en pais
+/* DB::table('actitudes_localidades')->insert([ //solo a participado en pais
             
             'idActitud' => 1,
             'idLocalidad' => 1,
             
-             ]);
+             ]);*/
 
 
  /* segundo estudiante*/
@@ -162,6 +165,7 @@ DB::table('localidades')->insert(array(
             
             'idEstudiante' => 2,
             'idActitud' => 1,
+            'idLocalidad' =>2,
             
              ]);
 
@@ -212,6 +216,7 @@ DB::table('localidades')->insert(array(
             
             'idEstudiante' => 3,
             'idActitud' => 1,
+            'idLocalidad' =>3,
             
              ]);
 //cuarto
@@ -260,6 +265,7 @@ DB::table('localidades')->insert(array(
             
             'idEstudiante' => 4,
             'idActitud' => 1,
+            'idLocalidad' =>4,
             
              ]);
 	  /* segundo estudiante*/
@@ -308,6 +314,7 @@ DB::table('localidades')->insert(array(
             
             'idEstudiante' => 5,
             'idActitud' => 1,
+            'idLocalidad' =>2,
             
              ]);
     }
