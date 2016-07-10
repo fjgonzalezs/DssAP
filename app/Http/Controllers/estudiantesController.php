@@ -110,11 +110,12 @@ $arreglo = array();
 
  $estudiantes = \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota')
+
   ->orderBy('totalNota', 'desc')
  ->get();
 
 $contar = DB::table('notas')
-                ->select(DB::raw('count(totalNota) as cuenta'))
+                ->select('totalNota',DB::raw('count(totalNota) as cuenta'))
                 ->groupBy('totalNota')
                 ->havingRaw('count(totalNota) > 1')
                 ->get();
@@ -189,6 +190,7 @@ $ids = array();
     {
          $estudiantes = \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota')
+ ->whereNull('idElegido')
  ->orderBy('totalNota', 'desc')
  ->get();
 $ids = array();
@@ -209,7 +211,7 @@ $ids = array();
  $abanderado = \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota')
   ->orderBy('totalNota', 'desc')
-  ->where('idEstudiante',$ids[1]) 
+  ->where('idEstudiante',$ids[0]) 
  ->first();
 $repetidos = array();
  foreach($estudiantes as $estudiante){
@@ -225,8 +227,19 @@ $repetidos = array();
 
  if(count($repetidos)>0){
 
-   $empatados = $this->dssciudad($abanderado->idEstudiante,$repetidos,$abanderado->totalNota);
-   return view('nacional.ciudad',compact('empatados'));
+      $empatados = DB::table('notas')
+       ->join('estudiantes','notas.idNota','=','estudiantes.idNota')
+       ->join('estudiantes_actitudes','estudiantes.idEstudiante','=','estudiantes_actitudes.idEstudiante')
+       ->join('localidades','estudiantes_actitudes.idLocalidad','=','localidades.idLocalidad')
+       ->select('estudiantes.*','notas.totalNota',DB::raw('sum(pesoLocalidad) as peso'))
+       ->where('notas.totalNota',$abanderado->totalNota)
+       ->groupBy('estudiantes.nombreEstudiante')
+       ->get();
+
+       $notaRepetida=$abanderado->totalNota;
+
+   //$empatados = $this->dssciudad($abanderado->idEstudiante,$repetidos,$abanderado->totalNota);
+   return view('nacional.ciudad',compact('empatados','notaRepetida'));
    //return $estudiante->totalNota;
    //return var_dump($empatados);
 
@@ -238,7 +251,7 @@ $repetidos = array();
 
     \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
- ->where('idEstudiante',$ids[1])
+ ->where('idEstudiante',$ids[0])
  ->update(['idElegido' => 'Portaestandarte de la ciudad ']);
  
     return "elegido Portaestandarte de la ciudad ";
@@ -251,17 +264,52 @@ $repetidos = array();
 
     }
 
-    public function dssciudad($idprimero,$idrepetidos,$nota){
+    public function dssciudad(Request $request){
 
-       $estudiantes = DB::table('notas')
+       $notaRepetida = $request->get('notaRepetida');
+
+        $empatados = DB::table('notas')
        ->join('estudiantes','notas.idNota','=','estudiantes.idNota')
        ->join('estudiantes_actitudes','estudiantes.idEstudiante','=','estudiantes_actitudes.idEstudiante')
        ->join('localidades','estudiantes_actitudes.idLocalidad','=','localidades.idLocalidad')
-       ->join('pesos_actitudes','localidades.idPeso_actitud','=','pesos_actitudes.idPeso_actitud')
-       ->where('notas.totalNota',$nota)
+       ->select('estudiantes.*','notas.totalNota',DB::raw('sum(pesoLocalidad) as peso'))
+       ->where('notas.totalNota',$notaRepetida)
+       ->groupBy('estudiantes.nombreEstudiante')
        ->get();
 
-       return $estudiantes;
+       $umbral = DB::table('umbral')
+       ->select('valorUmbral')
+       ->first();
+
+       //var_dump($umbral);
+
+       $contador = array();
+       foreach($empatados as $estudiante){
+
+        if($estudiante->peso>= $umbral->valorUmbral){
+
+            $contador[] = $estudiante->idEstudiante;
+        }
+       }
+
+       if(count($contador) ==1){
+
+        DB::table('estudiantes')
+        ->where('idEstudiante',$contador[0])
+        ->update((['idElegido' => 'Portaestandarte de la ciudad ']));
+
+        return "porta de la ciudad elegido";
+
+       }
+
+       elseif(count($contador) >1){
+        return "lanzar una moneda, todos son aptos para ser elegidos";
+       }
+       elseif(count($contador) ==0){
+        return "ninguno cuenta con el porcentaje para ser elegido, lanzar una moneda o actualizar aptitudes de los estudiantes";
+       }
+
+       return $notaRepetida;
 
 
 

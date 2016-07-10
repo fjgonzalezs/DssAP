@@ -15,10 +15,14 @@ class CrearTablaLocalidades extends Migration
         Schema::create('localidades', function (Blueprint $table) {
             $table->increments('idLocalidad');
              $table->string('nombreLocalidad',45);
+             $table->integer('pesoLocalidad');
 
-             
-              $table->integer('idPeso_actitud')->unsigned();
-             $table->foreign('idPeso_actitud')->references('idPeso_actitud')->on('pesos_actitudes');
+
+             $table->integer('idActitud')->unsigned();
+             $table->foreign('idActitud')->references('idActitud')->on('actitudes');
+
+             /*$table->integer('idPeso_actitud')->unsigned();
+             $table->foreign('idPeso_actitud')->references('idPeso_actitud')->on('pesos_actitudes');*/
             
         });
     }
