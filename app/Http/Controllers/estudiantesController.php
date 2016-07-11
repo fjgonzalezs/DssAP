@@ -17,7 +17,9 @@ class estudiantesController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes=DB::table('estudiantes')->get();
+
+        return view('estudiantes.estudiantes',compact('estudiantes'));
     }
 
     /**
@@ -38,7 +40,7 @@ class estudiantesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -49,7 +51,11 @@ class estudiantesController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudiante = DB::table('estudiantes')
+        ->where('idEstudiante',$id)
+        ->first();
+
+        return view('estudiantes.editarEstudiante',compact('estudiante', 'id'));
     }
 
     /**
@@ -72,7 +78,14 @@ class estudiantesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('estudiantes')
+        ->where('idEstudiante',$id)
+        ->update(['nombreEstudiante' =>$request->get('nombre'), 'apellidoEstudiante' => $request->get('apellido'),
+        'cedulaEstudiante' => $request->get('cedula'), 'emailEstudiante' => $request->get('email'),
+            'telefonoEstudiante' => $request->get('telefono'), 'domicilioEstudiante' => $request->get('domicilio')
+            ]);
+
+        return "se actualizo";
     }
 
     /**
@@ -188,6 +201,22 @@ $ids = array();
 
      public function ciudad()
     {
+
+        $comprobar = DB::table('estudiantes')
+        ->select('idElegido')
+        ->where('idElegido','Portaestandarte de la ciudad')
+        ->first();
+
+        //return var_dump($comprobar);
+
+       // return var_dump(is_null($comprobar));
+
+        if(is_null($comprobar)){
+
+        
+
+       // return var_dump($comprobar);
+
          $estudiantes = \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota')
  ->whereNull('idElegido')
@@ -252,7 +281,7 @@ $repetidos = array();
     \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
  ->where('idEstudiante',$ids[0])
- ->update(['idElegido' => 'Portaestandarte de la ciudad ']);
+ ->update(['idElegido' => 'Portaestandarte de la ciudad']);
  
     return "elegido Portaestandarte de la ciudad ";
 
@@ -261,7 +290,11 @@ $repetidos = array();
  //return var_dump($abanderado);
 
 
+ }
 
+ else{
+    return "ya se ha elegido esto";
+ }
     }
 
     public function dssciudad(Request $request){

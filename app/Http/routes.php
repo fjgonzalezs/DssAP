@@ -36,6 +36,11 @@ Route::get('elegirportaciudad','estudiantesController@ciudad');
 Route::post('dssciudad','estudiantesController@dssciudad');
 
 
+/*CRUD estudiante*/
+
+Route::resource('estudiante','estudiantesController');
+
+
 
 Route::get('MostrarNota',function(){
 
