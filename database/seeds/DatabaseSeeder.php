@@ -77,6 +77,7 @@ DB::table('actitudes')->insert(array(
         	array('nombreActitud' => 'Participación de estudiantes en actividades artísticas', 'totalActitud' => 15), 
         	array('nombreActitud' => 'Participación de estudiantes en actividades deportivas', 'totalActitud' => 20), 
         	array('nombreActitud' => 'Participación de estudiantes en actividades sociales', 'totalActitud' => 15),  
+          array('nombreActitud' => 'Disciplina', 'totalActitud' => 10),  
             ));
 
    /* DB::table('totales_pesos')->insert(array(
@@ -127,12 +128,19 @@ DB::table('localidades')->insert(array(
           array('nombreLocalidad' => 'Establecimiento educativo','pesoLocalidad' => 2, 'idActitud' => 4), 
           array('nombreLocalidad' => 'No participa', 'pesoLocalidad' => 0, 'idActitud' => 4),  
 
-           /* id 4 - actividades sociales*/
+           /* id 5 - actividades sociales*/
           array('nombreLocalidad' => 'País', 'pesoLocalidad' => 6, 'idActitud' => 5),
           array('nombreLocalidad' => 'Provincia', 'pesoLocalidad' => 4, 'idActitud' => 5), 
           array('nombreLocalidad' => 'Ciudad', 'pesoLocalidad' => 3, 'idActitud' => 5), 
           array('nombreLocalidad' => 'Establecimiento educativo','pesoLocalidad' => 2, 'idActitud' => 5), 
           array('nombreLocalidad' => 'No participa', 'pesoLocalidad' => 0, 'idActitud' => 5),  
+
+             /* id 6 - Disciplina*/
+          array('nombreLocalidad' => '9 a 10', 'pesoLocalidad' => 10, 'idActitud' => 6),
+          array('nombreLocalidad' => '7 a 8', 'pesoLocalidad' => 7.5, 'idActitud' => 6), 
+          array('nombreLocalidad' => '4 a 6', 'pesoLocalidad' => 5, 'idActitud' => 6), 
+          array('nombreLocalidad' => '1 a 3','pesoLocalidad' => 2.5, 'idActitud' => 6), 
+          
 
             ));
 
@@ -142,7 +150,10 @@ DB::table('localidades')->insert(array(
             ['idEstudiante' => 1,'idLocalidad' =>1],
             ['idEstudiante' => 1,'idLocalidad' =>2],
             ['idEstudiante' => 1,'idLocalidad' =>3],
-            ['idEstudiante' => 1,'idLocalidad' =>4],
+            ['idEstudiante' => 1,'idLocalidad' =>4], //todos cientifico hasta el 5
+            
+            ['idEstudiante' => 1,'idLocalidad' =>8],
+            ['idEstudiante' => 1,'idLocalidad' =>9],
             
 
             
