@@ -18,8 +18,10 @@ class CrearTablaEstudiantesActitudes extends Migration
             $table->integer('idEstudiante')->unsigned();
              $table->foreign('idEstudiante')->references('idEstudiante')->on('estudiantes');
 
-             $table->integer('idActitud')->unsigned();
-             $table->foreign('idActitud')->references('idActitud')->on('actitudes');
+           /*  $table->integer('idActitud')->unsigned();
+             $table->foreign('idActitud')->references('idActitud')->on('actitudes');*/
+             $table->integer('idLocalidad')->unsigned();
+             $table->foreign('idLocalidad')->references('idLocalidad')->on('localidades');
 
             
         });

@@ -32,6 +32,13 @@ Route::get('MostrarEstudiantes',function(){
 
 Route::get('elegirEstudiante','estudiantesController@muestraelegidos');
 Route::get('nacionalAbanderado','estudiantesController@nacional');
+Route::get('elegirportaciudad','estudiantesController@ciudad');
+Route::post('dssciudad','estudiantesController@dssciudad');
+
+
+/*CRUD estudiante*/
+
+Route::resource('estudiante','estudiantesController');
 
 
 

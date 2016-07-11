@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaActitudes extends Migration
+class CrearTablaUmbral extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CrearTablaActitudes extends Migration
      */
     public function up()
     {
-        Schema::create('actitudes', function (Blueprint $table) {
-             $table->increments('idActitud');
-             $table->string('nombreActitud',45);
-             $table->integer('totalActitud');
-             
+        Schema::create('umbral', function (Blueprint $table) {
+            $table->increments('idUmbral');
+            $table->integer('valorUmbral');
         });
     }
 
@@ -27,8 +25,6 @@ class CrearTablaActitudes extends Migration
      */
     public function down()
     {
-       
-             Schema::drop('actitudes');
-        
+        Schema::drop('umbral');
     }
 }

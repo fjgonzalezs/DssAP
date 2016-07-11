@@ -16,11 +16,11 @@ class CrearTablaActitudesLocalidades extends Migration
             $table->increments('idActitudes_localidades');
             
 
-             $table->integer('idActitud')->unsigned();
+            /* $table->integer('idActitud')->unsigned();
              $table->foreign('idActitud')->references('idActitud')->on('actitudes');
 
              $table->integer('idLocalidad')->unsigned();
-             $table->foreign('idLocalidad')->references('idLocalidad')->on('localidades');
+             $table->foreign('idLocalidad')->references('idLocalidad')->on('localidades');*/
         });
     }
 

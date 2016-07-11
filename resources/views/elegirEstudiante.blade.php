@@ -65,7 +65,7 @@
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
     <li><a href="{{url('nacionalAbanderado')}}">Abanderado Nacional</a></li>
-    <li><a href="#">Primer escolta nacional</a></li>
+    <li><a href="{{url('elegirportaciudad')}}">Primer escolta nacional</a></li>
     <li><a href="#">Segundo escolta nacional</a></li>
     
   </ul>

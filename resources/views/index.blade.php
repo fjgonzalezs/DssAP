@@ -106,10 +106,10 @@
     <div class="btn-group btn-group-justified">
       
       <div class="btn-group">
-        <button class="btn btn-default">
+        <a href="{{url('estudiante')}}"><button class="btn btn-default" >
           <i class="fa fa-envelope"></i>
           Ver
-        </button>
+        </button></a>
       </div>
     </div>
   </div>

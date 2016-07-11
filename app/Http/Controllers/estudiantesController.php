@@ -17,7 +17,9 @@ class estudiantesController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes=DB::table('estudiantes')->get();
+
+        return view('estudiantes.estudiantes',compact('estudiantes'));
     }
 
     /**
@@ -38,7 +40,7 @@ class estudiantesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -49,7 +51,11 @@ class estudiantesController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudiante = DB::table('estudiantes')
+        ->where('idEstudiante',$id)
+        ->first();
+
+        return view('estudiantes.editarEstudiante',compact('estudiante', 'id'));
     }
 
     /**
@@ -72,7 +78,14 @@ class estudiantesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('estudiantes')
+        ->where('idEstudiante',$id)
+        ->update(['nombreEstudiante' =>$request->get('nombre'), 'apellidoEstudiante' => $request->get('apellido'),
+        'cedulaEstudiante' => $request->get('cedula'), 'emailEstudiante' => $request->get('email'),
+            'telefonoEstudiante' => $request->get('telefono'), 'domicilioEstudiante' => $request->get('domicilio')
+            ]);
+
+        return "se actualizo";
     }
 
     /**
@@ -110,11 +123,12 @@ $arreglo = array();
 
  $estudiantes = \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota')
+
   ->orderBy('totalNota', 'desc')
  ->get();
 
 $contar = DB::table('notas')
-                ->select(DB::raw('count(totalNota) as cuenta'))
+                ->select('totalNota',DB::raw('count(totalNota) as cuenta'))
                 ->groupBy('totalNota')
                 ->havingRaw('count(totalNota) > 1')
                 ->get();
@@ -149,25 +163,186 @@ $ids = array();
   ->where('idEstudiante',$ids[0]) // 0 es el mejor
  ->first();
 
+ $repetidos = array();
  foreach($estudiantes as $estudiante){
 
     if($estudiante->idEstudiante <> $abanderado->idEstudiante && $estudiante->totalNota == $abanderado->totalNota)
     {
-        return "se repite hacer uso del dss";
+         $repetidos[] = $estudiante->idEstudiante;
     }
-    else{
 
-  \DB::table('estudiantes')
+   
+
+ }
+
+ if(count($repetidos)>0){
+
+    return "llamar al dss se repiten ". count($repetidos);
+
+ }
+
+ else{
+
+    \DB::table('estudiantes')
  ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
  ->where('idEstudiante',$ids[0])
- ->update(['idElegido' => 'Abanderado nacional']);
+ ->update(['idElegido' => 'abanderado nacional']);
  
     return "elegido abanderado nacional";
 
+ }
+
+
+
+ 
+ }
+
+     
+
+     public function ciudad()
+    {
+
+        $comprobar = DB::table('estudiantes')
+        ->select('idElegido')
+        ->where('idElegido','Portaestandarte de la ciudad')
+        ->first();
+
+        //return var_dump($comprobar);
+
+       // return var_dump(is_null($comprobar));
+
+        if(is_null($comprobar)){
+
+        
+
+       // return var_dump($comprobar);
+
+         $estudiantes = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+ ->whereNull('idElegido')
+ ->orderBy('totalNota', 'desc')
+ ->get();
+$ids = array();
+
+ foreach($estudiantes as $estudiante){
+
+
+
+    
+    $ids[] = $estudiante->idEstudiante;
+
+
+    
+ }
+
+
+
+ $abanderado = \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota')
+  ->orderBy('totalNota', 'desc')
+  ->where('idEstudiante',$ids[0]) 
+ ->first();
+$repetidos = array();
+ foreach($estudiantes as $estudiante){
+
+    if($estudiante->idEstudiante <> $abanderado->idEstudiante && $estudiante->totalNota == $abanderado->totalNota)
+    {
+         $repetidos[] = $estudiante->idEstudiante;
     }
+
+   
+
+ }
+
+ if(count($repetidos)>0){
+
+      $empatados = DB::table('notas')
+       ->join('estudiantes','notas.idNota','=','estudiantes.idNota')
+       ->join('estudiantes_actitudes','estudiantes.idEstudiante','=','estudiantes_actitudes.idEstudiante')
+       ->join('localidades','estudiantes_actitudes.idLocalidad','=','localidades.idLocalidad')
+       ->select('estudiantes.*','notas.totalNota',DB::raw('sum(pesoLocalidad) as peso'))
+       ->where('notas.totalNota',$abanderado->totalNota)
+       ->groupBy('estudiantes.nombreEstudiante')
+       ->get();
+
+       $notaRepetida=$abanderado->totalNota;
+
+   //$empatados = $this->dssciudad($abanderado->idEstudiante,$repetidos,$abanderado->totalNota);
+   return view('nacional.ciudad',compact('empatados','notaRepetida'));
+   //return $estudiante->totalNota;
+   //return var_dump($empatados);
+
+    //return "llamar al dss se repiten ". count($repetidos);
+
+ }
+
+ else{
+
+    \DB::table('estudiantes')
+ ->join('notas','estudiantes.idNota','=','notas.idNota') //creo que no es necesario el join
+ ->where('idEstudiante',$ids[0])
+ ->update(['idElegido' => 'Portaestandarte de la ciudad']);
+ 
+    return "elegido Portaestandarte de la ciudad ";
+
  }
 
  //return var_dump($abanderado);
+
+
+ }
+
+ else{
+    return "ya se ha elegido esto";
+ }
+    }
+
+    public function dssciudad(Request $request){
+
+       $notaRepetida = $request->get('notaRepetida');
+
+        $empatados = DB::table('notas')
+       ->join('estudiantes','notas.idNota','=','estudiantes.idNota')
+       ->join('estudiantes_actitudes','estudiantes.idEstudiante','=','estudiantes_actitudes.idEstudiante')
+       ->join('localidades','estudiantes_actitudes.idLocalidad','=','localidades.idLocalidad')
+       ->select('estudiantes.*','notas.totalNota',DB::raw('sum(pesoLocalidad) as peso'))
+       ->where('notas.totalNota',$notaRepetida)
+       ->groupBy('estudiantes.nombreEstudiante')
+       ->get();
+
+       $umbral = DB::table('umbral')
+       ->select('valorUmbral')
+       ->first();
+
+       //var_dump($umbral);
+
+       $contador = array();
+       foreach($empatados as $estudiante){
+
+        if($estudiante->peso>= $umbral->valorUmbral){
+
+            $contador[] = $estudiante->idEstudiante;
+        }
+       }
+
+       if(count($contador) ==1){
+
+        DB::table('estudiantes')
+        ->where('idEstudiante',$contador[0])
+        ->update((['idElegido' => 'Portaestandarte de la ciudad ']));
+
+        return "porta de la ciudad elegido";
+
+       }
+
+       elseif(count($contador) >1){
+        return "lanzar una moneda, todos son aptos para ser elegidos";
+       }
+       elseif(count($contador) ==0){
+        return "ninguno cuenta con el porcentaje para ser elegido, lanzar una moneda o actualizar aptitudes de los estudiantes";
+       }
+
+       return $notaRepetida;
 
 
 
