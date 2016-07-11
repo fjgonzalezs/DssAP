@@ -50,7 +50,7 @@
                         <a class="page-scroll" href="{{url('/#services')}}">Elegir porta estandarte</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{url('/#parametros')}}">Editar parametros</a>
+                        <a class="page-scroll" href="{{url('parametros')}}">Editar parametros</a>
                     </li>
                 </ul>
             </div>

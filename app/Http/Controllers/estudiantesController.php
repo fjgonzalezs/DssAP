@@ -331,7 +331,7 @@ $repetidos = array();
         ->where('idEstudiante',$contador[0])
         ->update((['idElegido' => 'Portaestandarte de la ciudad ']));
 
-        return "porta de la ciudad elegido";
+        return "portaestandarte de la ciudad elegido";
 
        }
 

@@ -14,7 +14,7 @@ class CrearTablaActitudes extends Migration
     {
         Schema::create('actitudes', function (Blueprint $table) {
              $table->increments('idActitud');
-             $table->string('nombreActitud',45);
+             $table->string('nombreActitud',100);
              $table->integer('totalActitud');
              
         });

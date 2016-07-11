@@ -35,6 +35,9 @@ Route::get('nacionalAbanderado','estudiantesController@nacional');
 Route::get('elegirportaciudad','estudiantesController@ciudad');
 Route::post('dssciudad','estudiantesController@dssciudad');
 
+Route::get('parametros','parametrosController@index');
+Route::get('parametros/{id}','parametrosController@show');
+
 
 /*CRUD estudiante*/
 
