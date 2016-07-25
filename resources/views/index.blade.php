@@ -185,7 +185,7 @@
     <div class="btn-group btn-group-justified">
       
       <div class="btn-group">
-       <a href="{{url('MostrarEstudiantes')}}"><button class="btn btn-default">
+       <a href="{{url('actitud')}}"><button class="btn btn-default">
           <i class="fa fa-envelope"></i>
           Ver
         </button></a> 

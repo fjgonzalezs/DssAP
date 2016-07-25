@@ -31,17 +31,51 @@ Route::get('MostrarEstudiantes',function(){
 });
 
 Route::get('elegirEstudiante','estudiantesController@muestraelegidos');
-Route::get('nacionalAbanderado','estudiantesController@nacional');
-Route::get('elegirportaciudad','estudiantesController@ciudad');
-Route::post('dssciudad','estudiantesController@dssciudad');
+
+/*Rutas pais*/
+Route::get('nacionalAbanderado','paisController@nacional');
+Route::post('dsspais','paisController@dsspais');
+
+Route::get('primerescoltapais','paisController@primerescolta');
+Route::post('dssprimerescoltapais','paisController@dssprimerescolta');
+
+Route::get('segundoescoltapais','paisController@segundoescolta');
+Route::post('dsssegundoescoltapais','paisController@dssprimerescolta');
+
+/*rutas ciudad*/
+Route::get('elegirportaciudad','ciudadController@ciudad');
+Route::post('dssciudad','ciudadController@dssciudad');
+
+Route::get('primerescoltaciudad','ciudadController@primerescolta');
+Route::post('dssprimerescoltaciudad','ciudadController@dssprimerescolta');
+
+Route::get('segundoescoltaciudad','ciudadController@segundoescolta');
+Route::post('dsssegundoescoltaciudad','ciudadController@dssprimerescolta');
+
+/*rutas plantel*/
+Route::get('elegirportaplantel','plantelController@plantel');
+Route::post('dssplantel','plantelController@dssplantel');
+
+Route::get('primerescoltaplantel','plantelController@primerescolta');
+Route::post('dssprimerescoltaplantel','plantelController@dssprimerescolta');
+
+Route::get('segundoescoltaescolta','plantelController@segundoescolta');
+Route::post('dsssegundoescoltaplantel','plantelController@dssprimerescolta');
+/* rutas parametros*/
 
 Route::get('parametros','parametrosController@index');
 Route::get('parametros/{id}','parametrosController@show');
+Route::patch('parametros/{id}/editar','parametrosController@editar');
+
+Route::get('actitud/','parametrosController@indexActitud');
+Route::post('actitud/calculoTotal','parametrosController@calculoTotal');
 
 
 /*CRUD estudiante*/
 
 Route::resource('estudiante','estudiantesController');
+Route::get('estudiante/{id}/agregarActitud','estudiantesController@agregarActitud');
+Route::post('estudiante/{id}/agregarActitud','parametrosController@agregarActitud');
 
 
 

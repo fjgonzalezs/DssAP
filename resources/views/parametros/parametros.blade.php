@@ -11,7 +11,7 @@
           <table class="table table-striped">
     <thead>
       <tr>
-        <th>Nombre parametro</th>
+        <th>Edicion parametros</th>
         
       </tr>
     </thead>
@@ -19,7 +19,7 @@
 
     	@foreach($parametros as $parametro)
 	<tr>
-        <td class="text-left">{{$parametro->nombreActitud}}</td>
+        <td class ="text-left"><a href="{{url('parametros').'/'.$parametro->idActitud}}">{{$parametro->nombreActitud}}</a></td>
         
       </tr>
 	
@@ -27,6 +27,10 @@
       
     </tbody>
   </table>
+
+<?php
+echo 'b\n';
+?>
                 
    
                 </div>
