@@ -72,12 +72,12 @@ class DatabaseSeeder extends Seeder
            
 
 DB::table('actitudes')->insert(array(
-        	array('nombreActitud' => 'Participación de estudiantes en actividades científicas', 'totalActitud' => 25),
-        	array('nombreActitud' => 'Participación de estudiantes en actividades culturales', 'totalActitud' => 15), 
-        	array('nombreActitud' => 'Participación de estudiantes en actividades artísticas', 'totalActitud' => 15), 
-        	array('nombreActitud' => 'Participación de estudiantes en actividades deportivas', 'totalActitud' => 20), 
-        	array('nombreActitud' => 'Participación de estudiantes en actividades sociales', 'totalActitud' => 15),  
-          array('nombreActitud' => 'Disciplina', 'totalActitud' => 10),  
+        	array('nombreActitud' => 'Participación de estudiantes en actividades científicas', 'totalActitud' => 27),
+        	array('nombreActitud' => 'Participación de estudiantes en actividades culturales', 'totalActitud' => 17), 
+        	array('nombreActitud' => 'Participación de estudiantes en actividades artísticas', 'totalActitud' => 17), 
+        	array('nombreActitud' => 'Participación de estudiantes en actividades deportivas', 'totalActitud' => 22), 
+        	array('nombreActitud' => 'Participación de estudiantes en actividades sociales', 'totalActitud' => 17),  
+         // array('nombreActitud' => 'Disciplina', 'totalActitud' => 10),  
             ));
 
    /* DB::table('totales_pesos')->insert(array(
@@ -135,11 +135,11 @@ DB::table('localidades')->insert(array(
           array('nombreLocalidad' => 'Establecimiento educativo','pesoLocalidad' => 2, 'idActitud' => 5), 
           array('nombreLocalidad' => 'No participa', 'pesoLocalidad' => 0, 'idActitud' => 5),  
 
-             /* id 6 - Disciplina*/
+         /*    // id 6 - Disciplina
           array('nombreLocalidad' => '9 a 10', 'pesoLocalidad' => 10, 'idActitud' => 6),
           array('nombreLocalidad' => '7 a 8', 'pesoLocalidad' => 7.5, 'idActitud' => 6), 
           array('nombreLocalidad' => '4 a 6', 'pesoLocalidad' => 5, 'idActitud' => 6), 
-          array('nombreLocalidad' => '1 a 3','pesoLocalidad' => 2.5, 'idActitud' => 6), 
+          array('nombreLocalidad' => '1 a 3','pesoLocalidad' => 2.5, 'idActitud' => 6), */
           
 
             ));

@@ -12,7 +12,8 @@
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Cedula</th>
-        <th>editar</th>
+        <th>editar Estudiante</th>
+        <th>Agregar Actitudes</th>
       </tr>
     </thead>
     <tbody>
@@ -31,10 +32,23 @@
 
 		 </button>
 
+        </a>
+		
+        </td>
+
+        <td>
+        <a href="{{action('estudiantesController@agregarActitud',['id' => $estudiante->idEstudiante])}}">
+            
+            <button type ='button' class = "btn btn-default" aria-label="Left-Align">
+            
+            <span class ="glyphicon glyphicon-plus" aria-hidden ='true'></span>
+
+         </button>
+
 
         </a>
 
-		
+        
         </td>
       </tr>
 	

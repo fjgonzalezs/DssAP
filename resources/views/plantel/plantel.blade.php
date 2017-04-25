@@ -34,9 +34,9 @@
       
     </tbody>
   </table>
-  {!! Form::open(array('url' => array('dsspais'),'method' => 'POST')) !!}
+  {!! Form::open(array('url' => array('dssplantel'),'method' => 'POST')) !!}
   <input type="hidden" name="notaRepetida" value ='{{$notaRepetida}}'>
-  <p><button type="submit" class="btn btn-primary">Elegir abanderado</button></p>
+  <p><button type="submit" class="btn btn-primary">Elegir porta estandarte del plantel</button></p>
   {!!Form::close()!!}
   
 </div>

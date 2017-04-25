@@ -30,7 +30,7 @@ class CrearTablaEstudiantes extends Migration
               $table->integer('idDisciplina')->unsigned();
              $table->foreign('idDisciplina')->references('idDisciplina')->on('disciplina');
 
-             $table->string('idElegido',40)->nullable()->default(null);
+             $table->string('idElegido',100)->nullable()->default(null);
               //$table->integer('idElegido')->unsigned()->nullable()->default(null);
              //$table->foreign('idElegido')->references('idElegido')->on('elegidos');
 
